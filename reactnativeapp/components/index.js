@@ -1,3 +1,4 @@
 import Header from './Header';
+import HorizontalFoodCart from './HorizontalFoodCart';
 
-export {Header};
+export {Header, HorizontalFoodCart};
