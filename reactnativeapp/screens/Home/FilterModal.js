@@ -50,7 +50,7 @@ const FilterModal = ({isVisible, onClose}) => {
     if (showFilterModal) {
       Animated.timing(modalAnimatedValue, {
         toValue: 1,
-        duration: 400,
+        duration: 200,
         useNativeDriver: false,
       }).start();
     } else {

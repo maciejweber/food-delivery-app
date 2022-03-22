@@ -3,7 +3,6 @@ import {View, Text} from 'react-native';
 import {FONTS} from '../constants';
 
 const Header = ({containerStyle, title, leftComponent, rightComponent}) => {
-  console.log(title);
   return (
     <View
       style={{

@@ -311,7 +311,7 @@ const MainLayout = ({navigation, selectedTab, setSelectedTab}) => {
         <LinearGradient
           start={{x: 0, y: 0}}
           end={{x: 0, y: 4}}
-          colors={[COLORS.transparent, COLORS.lightGray1]}
+          colors={[COLORS.transparent, COLORS.lightGray2]}
           style={{
             position: 'absolute',
             top: -110,
