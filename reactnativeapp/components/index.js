@@ -5,7 +5,6 @@ import IconButton from './IconButton';
 import TwoPointSilder from './TwoPointSilder';
 import TextButton from './TextButton';
 import TextIconButton from './TextIconButton';
-import Dots from './Dots';
 
 export {
   Header,
@@ -15,5 +14,4 @@ export {
   TwoPointSilder,
   TextButton,
   TextIconButton,
-  Dots,
 };
