@@ -3,8 +3,10 @@ import HorizontalFoodCart from './HorizontalFoodCart';
 import VerticalFoodCart from './VerticalFoodCart';
 import IconButton from './IconButton';
 import TwoPointSilder from './TwoPointSilder';
-import TextButton from './TextButton';
 import TextIconButton from './TextIconButton';
+
+import TextButton from './TextButton';
+import FormInput from './FormInput';
 
 export {
   Header,
@@ -12,6 +14,7 @@ export {
   VerticalFoodCart,
   IconButton,
   TwoPointSilder,
-  TextButton,
   TextIconButton,
+  TextButton,
+  FormInput,
 };

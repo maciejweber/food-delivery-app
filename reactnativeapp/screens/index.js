@@ -1,6 +1,7 @@
 import OnBoarding from './OnBoarding/OnBoarding';
 
 // Authentication
+import AuthLayout from './Authentication/AuthLayout';
 import SignIn from './Authentication/SignIn';
 import SignUp from './Authentication/SignUp';
 import Otp from './Authentication/Otp';
@@ -26,6 +27,7 @@ import Notification from './Notification/Notification';
 
 export {
   OnBoarding,
+  AuthLayout,
   SignIn,
   SignUp,
   Otp,
