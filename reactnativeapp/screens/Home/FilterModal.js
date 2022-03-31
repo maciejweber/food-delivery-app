@@ -171,6 +171,7 @@ const FilterModal = ({isVisible, onClose}) => {
                   color: item.id == ratings ? COLORS.white : COLORS.gray,
                 }}
                 icon={icons.star}
+                iconPosition="RIGHT"
                 iconStyle={{
                   tintColor: item.id == ratings ? COLORS.white : COLORS.gray,
                 }}

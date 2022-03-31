@@ -3,14 +3,26 @@ import {View, Text, TouchableOpacity, Image} from 'react-native';
 
 import {AuthLayout} from '../';
 import {FONTS, SIZES, COLORS, icons} from '../../constants';
-import {FormInput} from '../../components';
+import {
+  CustomSwitch,
+  FormInput,
+  TextButton,
+  TextIconButton,
+} from '../../components';
+import {utils} from '../../utils';
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
 
   const [showPass, setShowPass] = useState(false);
+  const [saveMe, setSaveMe] = useState(false);
+
+  function isEnableSignIn() {
+    return email != '' && password != '' && emailError == '';
+  }
+
   return (
     <AuthLayout
       title="Let's Sign You In"
@@ -18,7 +30,7 @@ const SignIn = () => {
       <View
         style={{
           flex: 1,
-          marginTop: SIZES.padding * 2,
+          marginTop: SIZES.padding,
         }}>
         {/* FORM INPUTS */}
         <FormInput
@@ -26,17 +38,27 @@ const SignIn = () => {
           keyboardType="email-address"
           autoCompleteType="email"
           onChange={value => {
+            utils.validateEmail(value, setEmailError);
             setEmail(value);
           }}
           errorMsg={emailError}
           appendComponent={
             <View style={{justifyContent: 'center'}}>
               <Image
-                source={icons.correct}
+                source={
+                  email == '' || (email != '' && emailError == '')
+                    ? icons.correct
+                    : icons.correct
+                }
                 style={{
                   height: 20,
                   width: 20,
-                  tintColor: COLORS.green,
+                  tintColor:
+                    email == ''
+                      ? COLORS.gray
+                      : email != '' && emailError == ''
+                      ? COLORS.green
+                      : COLORS.red,
                 }}
               />
             </View>
@@ -70,8 +92,111 @@ const SignIn = () => {
           }
         />
         {/* SAVE ME & FORGOT PASSOWRD */}
+        <View
+          style={{
+            flexDirection: 'row',
+            marginTop: SIZES.radius,
+            justifyContent: 'space-between',
+          }}>
+          <CustomSwitch value={saveMe} onChange={value => setSaveMe(value)} />
+          <TextButton
+            label="Forgot Password?"
+            buttonContainerStyle={{
+              backgroundColor: null,
+            }}
+            labelStyle={{
+              color: COLORS.gray,
+              ...FONTS.body4,
+            }}
+            onPress={() => navigation.navigate('ForgotPassword')}
+          />
+        </View>
         {/* SIGN IN  */}
+        <TextButton
+          label="Sign In"
+          disabled={isEnableSignIn() ? false : true}
+          buttonContainerStyle={{
+            height: 55,
+            alignItems: 'center',
+            marginTop: SIZES.padding,
+            borderRadius: SIZES.radius,
+            backgroundColor: isEnableSignIn()
+              ? COLORS.primary
+              : COLORS.transparentPrimray,
+          }}
+        />
         {/* SIGN UP */}
+        <View
+          style={{
+            flexDirection: 'row',
+            marginTop: SIZES.radius,
+            justifyContent: 'center',
+          }}>
+          <Text
+            style={{
+              color: COLORS.darkGray,
+              ...FONTS.body3,
+            }}>
+            Don't have an account?
+          </Text>
+          <TextButton
+            label="Sign Up"
+            buttonContainerStyle={{
+              marginLeft: 3,
+              backgroundColor: null,
+            }}
+            labelStyle={{
+              color: COLORS.primary,
+              ...FONTS.h3,
+            }}
+            onPress={() => navigation.navigate('SignUp')}
+          />
+        </View>
+      </View>
+
+      {/* FOOTER */}
+      <View>
+        {/* FACEBOOK */}
+        <TextIconButton
+          containerStyle={{
+            height: 50,
+            alignItems: 'center',
+            borderRadius: SIZES.radius,
+            backgroundColor: COLORS.blue,
+          }}
+          icon={icons.fb}
+          iconPosition="LEFT"
+          iconStyle={{
+            tintColor: COLORS.white,
+          }}
+          label="Continue With Facebook"
+          labelStyle={{
+            marginLeft: SIZES.radius,
+            color: COLORS.white,
+          }}
+          onPress={() => console.log('FB')}
+        />
+
+        {/* GOOGLE */}
+        <TextIconButton
+          containerStyle={{
+            height: 50,
+            alignItems: 'center',
+            marginTop: SIZES.radius,
+            borderRadius: SIZES.radius,
+            backgroundColor: COLORS.lightGray2,
+          }}
+          icon={icons.google}
+          iconPosition="LEFT"
+          iconStyle={{
+            tintColor: null,
+          }}
+          label="Continue With Google"
+          labelStyle={{
+            marginLeft: SIZES.radius,
+          }}
+          onPress={() => console.log('Google')}
+        />
       </View>
     </AuthLayout>
   );

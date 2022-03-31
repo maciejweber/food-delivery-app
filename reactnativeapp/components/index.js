@@ -7,6 +7,7 @@ import TextIconButton from './TextIconButton';
 
 import TextButton from './TextButton';
 import FormInput from './FormInput';
+import CustomSwitch from './CustomSwitch';
 
 export {
   Header,
@@ -17,4 +18,5 @@ export {
   TextIconButton,
   TextButton,
   FormInput,
+  CustomSwitch,
 };
