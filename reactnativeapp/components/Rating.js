@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import {COLORS, icons} from '../constants';
 
 const Rating = ({
@@ -41,6 +41,14 @@ const Rating = ({
         source={icons.star}
         style={{
           tintColor: rating >= 4 ? activeColor : inactiveColor,
+          ...styles.rateIcon,
+          ...iconStyle,
+        }}
+      />
+      <Image
+        source={icons.star}
+        style={{
+          tintColor: rating >= 5 ? activeColor : inactiveColor,
           ...styles.rateIcon,
           ...iconStyle,
         }}

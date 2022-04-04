@@ -6,6 +6,8 @@ import {
   IconButton,
   IconLabel,
   LineDivider,
+  Rating,
+  StepperInput,
   TextButton,
 } from '../../components';
 import {COLORS, dummyData, FONTS, icons, images, SIZES} from '../../constants';
@@ -13,6 +15,7 @@ import {COLORS, dummyData, FONTS, icons, images, SIZES} from '../../constants';
 const FoodDetail = () => {
   const [foodItem, setFoodItem] = useState(dummyData.vegBiryani);
   const [selectedSize, setSelectedSize] = useState('');
+  const [qty, setQty] = useState(1);
 
   function renderHeader() {
     return (
@@ -247,6 +250,52 @@ const FoodDetail = () => {
             1.2KM away from you
           </Text>
         </View>
+
+        {/* RATINGS */}
+        <Rating
+          rating={4}
+          iconStyle={{
+            marginLeft: 3,
+          }}
+        />
+      </View>
+    );
+  }
+
+  function renderFooter() {
+    return (
+      <View
+        style={{
+          flexDirection: 'row',
+          height: 120,
+          alignItems: 'center',
+          paddingHorizontal: SIZES.padding,
+          paddingBottom: SIZES.radius,
+        }}>
+        {/* STEPPER INPUT */}
+        <StepperInput
+          value={qty}
+          onAdd={() => setQty(qty + 1)}
+          onMinus={() => {
+            if (qty > 1) {
+              setQty(qty - 1);
+            }
+          }}
+        />
+        {/* TEXT BUTTON */}
+        <TextButton
+          buttonContainerStyle={{
+            flex: 1,
+            flexDirection: 'row',
+            height: 60,
+            marginLeft: SIZES.radius,
+            paddingHorizontal: SIZES.radius,
+            borderRadius: SIZES.radius,
+            backgroundColor: COLORS.primary,
+          }}
+          label="Buy Now"
+          label2="$15.99"
+        />
       </View>
     );
   }
@@ -271,6 +320,8 @@ const FoodDetail = () => {
       </ScrollView>
 
       {/* FOOTER */}
+      <LineDivider />
+      {renderFooter()}
     </View>
   );
 };
