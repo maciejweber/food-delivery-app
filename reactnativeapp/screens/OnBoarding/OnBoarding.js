@@ -141,7 +141,7 @@ const OnBoarding = ({navigation}) => {
                 height: 60,
                 borderRadius: SIZES.radius,
               }}
-              onPress={() => navigation.replace('SignIn')}
+              onPress={() => navigation.replace('Home')}
             />
           </View>
         )}

@@ -9,6 +9,11 @@ import TextButton from './TextButton';
 import FormInput from './FormInput';
 import CustomSwitch from './CustomSwitch';
 
+import CartQuantityButton from './CartQuantityButton';
+import IconLabel from './IconLabel';
+import LineDivider from './LineDivider';
+import Rating from './Rating';
+
 export {
   Header,
   HorizontalFoodCart,
@@ -19,4 +24,8 @@ export {
   TextButton,
   FormInput,
   CustomSwitch,
+  CartQuantityButton,
+  IconLabel,
+  LineDivider,
+  Rating,
 };

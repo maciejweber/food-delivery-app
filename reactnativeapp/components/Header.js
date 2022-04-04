@@ -2,7 +2,13 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {FONTS} from '../constants';
 
-const Header = ({containerStyle, title, leftComponent, rightComponent}) => {
+const Header = ({
+  containerStyle,
+  title,
+  titleStyle,
+  leftComponent,
+  rightComponent,
+}) => {
   return (
     <View
       style={{
@@ -18,7 +24,7 @@ const Header = ({containerStyle, title, leftComponent, rightComponent}) => {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <Text style={{...FONTS.h3}}>{title}</Text>
+        <Text style={{...FONTS.h3, ...titleStyle}}>{title}</Text>
       </View>
       {/* RIGHT */}
       {rightComponent}

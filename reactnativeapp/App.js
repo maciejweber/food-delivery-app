@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
@@ -14,23 +14,37 @@ const Stack = createStackNavigator();
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
-import {OnBoarding, SignIn, SignUp, ForgotPassword, Otp} from './screens';
+import {
+  OnBoarding,
+  SignIn,
+  SignUp,
+  ForgotPassword,
+  Otp,
+  FoodDetail,
+} from './screens';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const App = () => {
-  useEffect(() => {
-    SplashScreen.hide();
-  }, []);
-  return (
-    <Provider store={store}>
-      <NavigationContainer>
-        {/* <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-          }}
-          initialRouteName={'Home'}>
-          <Stack.Screen name="Home" component={CustomDrawer} />
-        </Stack.Navigator> */}
+  const [isFirstLaunch, setIsFirstLaunch] = useState(null);
 
+  useEffect(async () => {
+    const appData = await AsyncStorage.getItem('alreadyLaunched').then(
+      value => {
+        if (value == null) {
+          AsyncStorage.setItem('alreadyLaunched', 'true');
+          setIsFirstLaunch(true);
+        } else {
+          setIsFirstLaunch(false);
+        }
+      },
+    );
+  }, []);
+
+  if (isFirstLaunch === null) {
+    return null;
+  } else if (isFirstLaunch === true) {
+    return (
+      <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
             headerShown: false,
@@ -47,8 +61,23 @@ const App = () => {
           <Stack.Screen name="Otp" component={Otp} />
         </Stack.Navigator>
       </NavigationContainer>
-    </Provider>
-  );
+    );
+  } else {
+    return (
+      <Provider store={store}>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              headerShown: false,
+            }}
+            initialRouteName={'Home'}>
+            {/* <Stack.Screen name="Home" component={CustomDrawer} /> */}
+            <Stack.Screen name="Home" component={FoodDetail} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
+    );
+  }
 };
 
 export default App;

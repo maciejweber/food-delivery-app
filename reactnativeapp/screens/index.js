@@ -25,6 +25,22 @@ import Favourite from './Favourite/Favourite';
 // Notification
 import Notification from './Notification/Notification';
 
+// Food
+import FoodDetail from './Food/FoodDetail';
+
+// Cart
+import Checkout from './Cart/Checkout';
+import MyCart from './Cart/MyCart';
+import Success from './Cart/Success';
+
+// Card
+import AddCard from './Card/AddCard';
+import MyCard from './Card/MyCard';
+
+// Delivery
+import DeliveryStatus from './Delivery/DeliveryStatus';
+import Map from './Delivery/Map';
+
 export {
   OnBoarding,
   AuthLayout,
@@ -39,4 +55,12 @@ export {
   CartTab,
   Favourite,
   Notification,
+  FoodDetail,
+  Checkout,
+  MyCart,
+  Success,
+  AddCard,
+  MyCard,
+  DeliveryStatus,
+  Map,
 };

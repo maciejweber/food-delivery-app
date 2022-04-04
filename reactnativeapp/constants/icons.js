@@ -25,6 +25,30 @@ const setting = require('../assets/icons/setting.png');
 const star = require('../assets/icons/star.png');
 const wallet = require('../assets/icons/wallet.png');
 const help = require('../assets/icons/help.png');
+const apple = require('../assets/icons/apple.png');
+const back = require('../assets/icons/back.png');
+const cancel = require('../assets/icons/cancel.png');
+const check_off = require('../assets/icons/check_off.png');
+const check_on = require('../assets/icons/check_on.png');
+const check_circle = require('../assets/icons/check_circle.png');
+const delete_icon = require('../assets/icons/delete.png');
+const discount = require('../assets/icons/discount.png');
+const dollar = require('../assets/icons/dollar.png');
+const dotted_line = require('../assets/icons/dotted_line.png');
+const minus = require('../assets/icons/minus.png');
+const clock = require('../assets/icons/clock.png');
+const map = require('../assets/icons/map.png');
+const mastercard = require('../assets/icons/mastercard.png');
+const location1 = require('../assets/icons/location1.png');
+const paypal = require('../assets/icons/paypal.png');
+const plus = require('../assets/icons/plus.png');
+const visa = require('../assets/icons/visa.png');
+const globe = require('../assets/icons/globe.png');
+const focus = require('../assets/icons/focus.png');
+const call = require('../assets/icons/call.png');
+const location_pin = require('../assets/icons/location_pin.png');
+const navigator = require('../assets/icons/navigator.png');
+const navigator1 = require('../assets/icons/navigator1.png');
 
 export default {
   coupon,
@@ -54,4 +78,28 @@ export default {
   star,
   wallet,
   help,
+  apple,
+  back,
+  cancel,
+  check_off,
+  check_on,
+  check_circle,
+  delete_icon,
+  discount,
+  dollar,
+  dotted_line,
+  minus,
+  clock,
+  map,
+  mastercard,
+  location1,
+  paypal,
+  plus,
+  visa,
+  globe,
+  focus,
+  call,
+  location_pin,
+  navigator,
+  navigator1,
 };
