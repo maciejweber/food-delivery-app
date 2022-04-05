@@ -12,7 +12,7 @@ import {
 } from '../../components';
 import {COLORS, dummyData, FONTS, icons, images, SIZES} from '../../constants';
 
-const FoodDetail = () => {
+const FoodDetail = ({navigation}) => {
   const [foodItem, setFoodItem] = useState(dummyData.vegBiryani);
   const [selectedSize, setSelectedSize] = useState('');
   const [qty, setQty] = useState(1);
@@ -295,6 +295,7 @@ const FoodDetail = () => {
           }}
           label="Buy Now"
           label2="$15.99"
+          onPress={() => navigation.navigate('MyCart')}
         />
       </View>
     );
