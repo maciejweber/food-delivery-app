@@ -162,7 +162,12 @@ const MyCart = ({navigation}) => {
       {renderCartList()}
 
       {/* FOOTER */}
-      <FooterTotal subTotal={37.97} shippingFee={0.0} total={37.97} />
+      <FooterTotal
+        subTotal={37.97}
+        shippingFee={0.0}
+        total={37.97}
+        onPress={() => navigation.navigate('MyCard')}
+      />
     </View>
   );
 };
