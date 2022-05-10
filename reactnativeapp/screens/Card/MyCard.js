@@ -105,6 +105,15 @@ const MyCard = ({navigation}) => {
               selectedCard == null ? COLORS.gray : COLORS.primary,
           }}
           label={selectedCard?.key == 'NewCard' ? 'Add' : 'Place your Order'}
+          onPress={() => {
+            if (selectedCard?.key == 'NewCard') {
+              navigation.navigate('AddCard', {selectedCard: selectedCard});
+            } else {
+              navigation.navigate('Checkout', {
+                selectedCard: selectedCard,
+              });
+            }
+          }}
         />
       </View>
     );
